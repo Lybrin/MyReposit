@@ -37,7 +37,7 @@ let appData = {
         appData.moneyPerDay = (appData.budget / 30).toFixed();
         alert("Ежедневный бюджет: " + appData.moneyPerDay); //вывести сообщение с бюджетом на 1 день        
     },
-    detectLevel: function) {
+    detectLevel: function() {
         if (appData.moneyPerDay < 100) {
             console.log("Минимальный уроверь достатка");
         } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
@@ -58,25 +58,34 @@ let appData = {
         }
     
     },
-    chooseOptExpenses = function() {
+    chooseOptExpenses: function() {
         let optionalExpenses = {
             1: prompt("Статья необязательных расходов?", ""),
             2: prompt("Статья необязательных расходов?", ""),
             3: prompt("Статья необязательных расходов?", "")
         };    
+    },
+    chooseIncome: function() {
+        let items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
+        console.log(typeof(items));
+      
+        while(items == '' || (typeof(items) != "string") || items == false || items.length > 50) {
+            items = prompt('Что принесет дополнительный доход? (Перечислите через запятую)', '');
+        }
+
+        appData.income = items.split(', ');
+        appData.income.push(prompt('Может что-то ещё?'), '');
+        appData.income.sort();
     }
 };
 
-
-//chooseExpenses();
-
-
-detectDayBudget();
-detectLevel();
-// chooseOptExpenses();
+console.log("Наша программа включает в себя данные: ");
+for (let key in appData) {
+    console.log(appData[key] + "\n");
+}
 
 
-checkSavings();
+
 
 
 

@@ -1,0 +1,83 @@
+div {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    padding-top: 5px;
+}
+
+h1,p {
+    background: #369;
+    color: #fff;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: normal;
+    line-height: 3em;
+    text-align: left;
+    /* text-decoration: underline; */
+    text-indent: 2em;
+    text-transform: none;
+
+    background-image: url(apple.jpg);
+    background-repeat: no-repeat;
+    background-position: 30%;
+}
+
+p {
+    font-size: 1em;
+    font-weight: bolder;
+    font-style: italic;
+}
+
+h1 {
+    margin-top: 150px;
+}
+
+.circle {
+    width: 50px;
+    height: 50px;
+    background: green;
+    border-radius: 50%;
+    border: solid 1px black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    /* display: inline-block; */
+    margin-left: 30px;
+}
+
+button {
+    width: 80px;
+    height: 20px;
+    background-color: black;
+    color: white;
+    margin-right: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+/* .heart {
+    margin-top: 70px;
+    position: relative;
+    width: 100px; height: 80px;
+    background-color: white;
+}
+
+    .heart:before, .heart:after {
+    content: "";
+    position: absolute; left: 50px; top: 0;
+    width: 50px; height: 80px;
+    background: #EE4156;
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg); transform-origin: 0 100%;
+}
+
+    .heart:after {
+    left: 0;
+    transform: rotate(45deg); transform-origin: 100% 100%;
+ }*/
+
+/*     .box {
+        height: 150px;
+        width: 150px;
+        background-color: red;
+}
+ */
