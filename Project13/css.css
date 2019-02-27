@@ -1,0 +1,53 @@
+body {
+    background-color: burlywood;
+}
+
+.animate {
+    color: black;
+    background-color: yellow;
+    width: 100px;
+    height: 50px;
+    margin: 10px 10px;
+    padding: 0px;
+    cursor: pointer;
+
+}
+
+.btn-block {
+    color: black;
+    background-color: grey;
+    width: 800px;
+    height: 60px;
+    margin: 10px 10px;
+    padding: 0px;
+}
+
+button {
+    color: black;
+    background-color: yellow;
+    width: 80px;
+    height: 30px;
+    margin: 15px 1px;
+    padding: 0px;
+    cursor: pointer;
+}
+
+.btn-block :first-child {
+    margin-left: 20px;
+}
+
+
+
+.little_square {
+    width: 50px;
+    height: 50px;
+    background-color: rgb(4, 0, 255);
+    position: relative;
+}
+
+.big_square {
+    width: 400px;
+    height: 400px;
+    margin: 10px 10px;
+    border: 3px solid red;
+}

@@ -37,7 +37,7 @@ let appData = {
         appData.moneyPerDay = (appData.budget / 30).toFixed();
         alert("Ежедневный бюджет: " + appData.moneyPerDay); //вывести сообщение с бюджетом на 1 день        
     },
-    detectLevel: function) {
+    detectLevel: function() {
         if (appData.moneyPerDay < 100) {
             console.log("Минимальный уроверь достатка");
         } else if (appData.moneyPerDay > 100 && appData.moneyPerDay < 2000) {
