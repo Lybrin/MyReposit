@@ -39,7 +39,10 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
 
     let tabPhoto = document.querySelectorAll('.dot'),
         wrapPhoto = document.querySelector('.slider-dots'),
-        sliderItem = document.querySelectorAll('.slider-item');
+        sliderItem = document.querySelectorAll('.slider-item'),
+        arrowLeft = document.querySelector('.prev'),
+        arrowRight = document.querySelector('.next'),
+        indexPhoto = 0;
 
     function hidePhoto(a) {
         for (let i = a; i < sliderItem.length; i++) {
@@ -48,7 +51,69 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
         }
     }
 
-    // hidePhoto(1);
+    hidePhoto(1); //скрыть все фото, начиная со 2-ой (1-ую оставляем)
 
+    function showPhoto(b) {
+        if (sliderItem[b].classList.contains('hide')) {
+            sliderItem[b].classList.remove('hide');
+            sliderItem[b].classList.add('show');
+        }
+    }
+
+    
+    function showActiveDot(c) {
+        for (let i = 0; i < tabPhoto.length; i++) {
+            if (tabPhoto[i].classList.contains('dot-active')) {
+                tabPhoto[i].classList.remove('dot-active');
+            }
+        }
+
+        tabPhoto[c].classList.add('dot-active');
+    }
+
+    wrapPhoto.addEventListener('click', function (event) { //обработки нажатия на точки под Фото
+        let target = event.target;
+
+        if (target && target.classList.contains('dot')) {
+            for (let i = 0; i < tabPhoto.length; i++) {
+                
+                if (target == tabPhoto[i]) {
+                    hidePhoto(0);
+                    showPhoto(i);
+                    indexPhoto = i;
+                    showActiveDot(i);
+                    break;
+                }
+            }
+        }
+    });
+
+    arrowLeft.addEventListener('click', function () { //обработка клика на левую часть
+        if (indexPhoto > 0) {
+            hidePhoto(0);
+            showPhoto(indexPhoto-1);
+            indexPhoto--;
+            showActiveDot(indexPhoto);
+        } else if (indexPhoto == 0) {
+            hidePhoto(0);
+            showPhoto(tabPhoto.length-1);
+            showActiveDot(tabPhoto.length-1);
+            indexPhoto = tabPhoto.length-1;
+        }
+    });
+
+    arrowRight.addEventListener('click', function () { //обработка клика на правую часть
+        if (indexPhoto < tabPhoto.length-1) {
+            hidePhoto(0);
+            showPhoto(indexPhoto+1);
+            indexPhoto++;
+            showActiveDot(indexPhoto);
+        } else if (indexPhoto == tabPhoto.length-1) {
+            hidePhoto(0);
+            showPhoto(0);
+            showActiveDot(0);
+            indexPhoto = 0;
+        }
+    });
 });
 
