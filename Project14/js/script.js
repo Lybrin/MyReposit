@@ -1,4 +1,4 @@
-window.addEventListener('DOMContentLoaded', function() { //выполнять JS-код, когда загрузилась DOM-структура web-страницы
+window.addEventListener('DOMContentLoaded', function () { //выполнять JS-код, когда загрузилась DOM-структура web-страницы
 
     'use strict'; //перевести в строгий режим,код будет работать по современному стандарту ES5+
 
@@ -22,12 +22,12 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
         }
     }
 
-    info.addEventListener('click', function(event) {
+    info.addEventListener('click', function (event) {
         let target = event.target;
 
         if (target && target.classList.contains('info-header-tab')) {
             for (let i = 0; i < tab.length; i++) {
-                
+
                 if (target == tab[i]) {
                     hideTabContent(0);
                     showTabContent(i);
@@ -60,7 +60,7 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
         }
     }
 
-    
+
     function showActiveDot(c) {
         for (let i = 0; i < tabPhoto.length; i++) {
             if (tabPhoto[i].classList.contains('dot-active')) {
@@ -76,7 +76,7 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
 
         if (target && target.classList.contains('dot')) {
             for (let i = 0; i < tabPhoto.length; i++) {
-                
+
                 if (target == tabPhoto[i]) {
                     hidePhoto(0);
                     showPhoto(i);
@@ -91,24 +91,24 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
     arrowLeft.addEventListener('click', function () { //обработка клика на левую часть
         if (indexPhoto > 0) {
             hidePhoto(0);
-            showPhoto(indexPhoto-1);
+            showPhoto(indexPhoto - 1);
             indexPhoto--;
             showActiveDot(indexPhoto);
         } else if (indexPhoto == 0) {
             hidePhoto(0);
-            showPhoto(tabPhoto.length-1);
-            showActiveDot(tabPhoto.length-1);
-            indexPhoto = tabPhoto.length-1;
+            showPhoto(tabPhoto.length - 1);
+            showActiveDot(tabPhoto.length - 1);
+            indexPhoto = tabPhoto.length - 1;
         }
     });
 
     arrowRight.addEventListener('click', function () { //обработка клика на правую часть
-        if (indexPhoto < tabPhoto.length-1) {
+        if (indexPhoto < tabPhoto.length - 1) {
             hidePhoto(0);
-            showPhoto(indexPhoto+1);
+            showPhoto(indexPhoto + 1);
             indexPhoto++;
             showActiveDot(indexPhoto);
-        } else if (indexPhoto == tabPhoto.length-1) {
+        } else if (indexPhoto == tabPhoto.length - 1) {
             hidePhoto(0);
             showPhoto(0);
             showActiveDot(0);
@@ -116,4 +116,3 @@ window.addEventListener('DOMContentLoaded', function() { //выполнять JS
         }
     });
 });
-
