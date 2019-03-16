@@ -1,0 +1,13 @@
+textarea {
+    font-size: 15px;
+    margin: 20px 80px;
+    padding: 10px;
+    text-align: justify;
+    height: 400px;
+    box-sizing: border-box;
+}
+
+button {
+    position: relative;
+    left: -35%;
+}
