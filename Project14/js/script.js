@@ -115,4 +115,52 @@ window.addEventListener('DOMContentLoaded', function () { //выполнять J
             indexPhoto = 0;
         }
     });
+
+    // Timer
+    let deadLine = '2019-03-20';
+
+/*     Метод parse() принимает строку с датой (например, "Dec 25, 1995") и 
+    возвращает количество миллисекунд, прошедших с 1 января 1970 года 00:00:00 по UTC.
+ */    
+    function getTimeRemaining(endTime) {
+        let t = Date.parse(endTime) - Date.parse(new Date()),
+        // t - кол-во мс между датой deadLine и текущей датой
+            seconds = Math.floor((t/1000) % 60),
+            minutes = Math.floor((t/1000/60) % 60),
+            hours = Math.floor((t/(1000*60*60)));
+
+        return {
+            'total': t,
+            'hours': hours,
+            'minutes': minutes,
+            'seconds': seconds
+        };
+    }
+
+    function setClock(id, endTime) {
+        let timer = document.getElementById(id),
+            hours = timer.querySelector('.hours'),
+            minutes = timer.querySelector('.minutes'),
+            seconds = timer.querySelector('.seconds'),
+            timeInterval = setInterval(updateClock, 1000);
+
+        function updateClock() {
+            let t = getTimeRemaining(endTime);
+            hours.textContent = t.hours + ' ч';
+            
+            if (t.minutes < 10) {
+                minutes.textContent = '0' + t.minutes + ' мин';                
+            }else minutes.textContent = t.minutes + ' мин';
+            
+            if (t.seconds < 10) {
+                seconds.textContent = '0' + t.seconds + ' с';
+            } else seconds.textContent = t.seconds + ' c';
+
+            if (t.total <= 0) {
+                clearInterval(timeInterval);
+            }
+        }
+    }
+
+    setClock('timer', deadLine);
 });
